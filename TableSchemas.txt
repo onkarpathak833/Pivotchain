@@ -1,0 +1,27 @@
+mysql> describe ACCOUNT_DETAILS;
++---------------------+-------------+------+-----+---------+-------+
+| Field               | Type        | Null | Key | Default | Extra |
++---------------------+-------------+------+-----+---------+-------+
+| USER_ID             | varchar(20) | NO   | PRI |         |       |
+| TOTAL_BALANCE       | int(11)     | YES  |     | NULL    |       |
+| DAY_CLOSING_BALANCE | int(11)     | YES  |     | NULL    |       |
+| NO_TXN              | int(11)     | YES  |     | NULL    |       |
+| AVG_TXN_AMOUNT      | float       | YES  |     | NULL    |       |
+| LAST_TXN_DAY        | varchar(15) | YES  |     | NULL    |       |
+| DAYS_OF_TXN         | int(11)     | YES  |     | NULL    |       |
+| MONTH_AVG_BALANCE   | float       | YES  |     | NULL    |       |
+| TOTAL_TXN_VALUE     | int(11)     | YES  |     | NULL    |       |
+| DAYS_TXN_VALUE      | int(11)     | YES  |     | NULL    |       |
++---------------------+-------------+------+-----+---------+-------+
+10 rows in set (0.00 sec)
+
+mysql> describe USER_TRANSACTION;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| USER_ID  | varchar(20) | YES  |     | NULL    |       |
+| TXN_DATE | varchar(15) | YES  |     | NULL    |       |
+| TXN_TYPE | varchar(2)  | YES  |     | NULL    |       |
+| AMOUNT   | int(11)     | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
