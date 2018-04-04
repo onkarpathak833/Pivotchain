@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<>
+</head>
+
+<body>
+<h1>All results page</h1>
+<table border="1" cellpadding="5" cellspacing="5">
+   <tr>
+	<th>User ID</th>
+	<th>Total Balance</th>
+	<th>Average Transaction Amount</th>
+	<th>Last Transaction Day</th>
+	<th>Monthly Avg Balance</th>
+
+  </tr>
+    {% for row in data %}
+        <tr>
+        {% for d in row %}
+            <td>{{ d }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+
+</body>
+
+</html>

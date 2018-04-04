@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Wed, 04 Apr 2018 19:28:53 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>index.html</title>
+    
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{
+  url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+
+	<script>
+
+	$(function() {
+    $('#btnShowAll').click(function() {
+ 
+        $.ajax({
+            url: '/alltransactions',
+            data: $('form').serialize(),
+            type: 'POST',
+            success: function(response) {
+                $('#resultdiv').html(response);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+});
+
+
+	</script>
+
+
+
+	<script>
+
+        $(function() {
+    $('#btnShowUser').click(function() {
+
+        $.ajax({
+            url: '/userdata',
+            data: $('form').serialize(),
+            type: 'POST',
+            success: function(response) {
+                $('#resultdiv').html(response);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+});
+
+
+        </script>
+
+
+
+
+
+
+
+	
+	<style type="text/css">
+
+    <!--
+    body {
+      color:#000000;
+      background-color:#99CC00;
+      background-image:url('Background Image');
+      background-repeat:no-repeat;
+    }
+    a  { color:#0000FF; }
+    a:visited { color:#800080; }
+    a:hover { color:#008000; }
+    a:active { color:#FF0000; }
+    -->
+    </style>
+    <!--[if IE]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <h1>Welcome to the Page</h1>
+  <h2>Click here Show All User Profiles</h2>
+  
+  <div class="jumbotron">
+        <!--<h1>Bucket List App</h1> -->
+        <form class="form-signin" method="post">
+        <!--<label for="inputName" class="sr-only">Name</label>
+        <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Name" required autofocus>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required> -->
+         
+        <button id="btnShowAll" class="btn btn-lg btn-primary btn-block" type="button">Show All User Profiles</button>
+		<br><br><br><br><br>
+		<h1>Enter User ID to see profile</h1>
+		<input type="UserId" name="UserId" id="UserId" class="form-control" placeholder="UserId" required autofocus>
+		<button id="btnShowUser" class="btn btn-lg btn-primary btn-block" type="button">Get User Profile</button>
+		<br><br><br><br><br>
+		<h2>Click here to see latest transactions</h2>
+		<button id="btnShowUser" class="btn btn-lg btn-primary btn-block" type="button">View Latest Events</button>
+      </form>
+      </div>
+	<div id="resultdiv">
+
+
+	</div>
+
+  
+  </body>
+</html>

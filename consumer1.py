@@ -44,14 +44,14 @@ def updateAccountDetails(userId,txnDate,txnType,txnAmount):
             totalBalance=totalBalance+txnAmount
         if txnType=='C':
             totalBalance=totalBalance-txnAmount
-        print("******************************** Inserting intial values *********************")
+        #print("******************************** Inserting intial values *********************")
         insert_stmt="INSERT INTO ACCOUNT_DETAILS VALUES ('%s','%d','%d','%d','%f','%s','%d','%f','%d','%d')"%(user_id,totalBalance,day_closing_balance,no_txn,txnAmount,last_txn_day,days_of_txn,txnAmount,month_avg_balance,txnAmount)
 
         no_of_rows=cursor1.execute(insert_stmt)
         db.commit()
         #sleep(1)
         unique_users=unique_users+no_of_rows
-        print("No. of unique users txn : "+str(unique_users))       
+        #print("No. of unique users txn : "+str(unique_users))       
     else:
         for row in row_data:
             user_id=str(row[0])
@@ -118,18 +118,18 @@ def consumeMsgs():
         counter=0
         for message in consumer:
             data=message.value
-            print(data)
+            #print(data)
             all_data=data.split('\t')
             userId=str(all_data[0])
             txnDate=str(all_data[1])
             txnType=str(all_data[2])
             txnAmount=int(all_data[3])
-            print(message.value)
+            #print(message.value)
             consumer.commit()
             sql_stmt="insert into USER_TRANSACTION VALUES ('%s','%s','%s','%d')" %(userId,txnDate,txnType,txnAmount)
             no_rows=cursor.execute(sql_stmt)
             counter=counter+no_rows
-            print("No of logs inserted : "+str(counter))
+            #print("No of logs inserted : "+str(counter))
             db.commit()
             updateAccountDetails(userId,txnDate,txnType,txnAmount)
         print("No of logs inserted : "+str(counter))

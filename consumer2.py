@@ -47,8 +47,8 @@ def updateAccountDetails(userId,txnDate,txnType,txnAmount):
 
         no_of_rows=cursor1.execute(insert_stmt)
         db.commit()
-        sleep(1)
-        print("******************** INITIAL USER INSERT ************************")
+        #sleep(1)
+        #print("******************** INITIAL USER INSERT ************************")
         unique_users=unique_users+no_of_rows
         print("No. of unique users txn : "+str(unique_users))       
     else:
@@ -97,9 +97,9 @@ def updateAccountDetails(userId,txnDate,txnType,txnAmount):
             print("********************Database update successfull.*************************")
             cursor2=db.cursor()
             cursor2.execute(insert_stmt)
-            print()
+            #print()
             db.commit()
-            sleep(1)
+            #sleep(1)
 
 
 
@@ -126,7 +126,7 @@ def consumeMsgs():
             sql_stmt="insert into USER_TRANSACTION VALUES ('%s','%s','%s','%d')" %(userId,txnDate,txnType,txnAmount)
             no_rows=cursor.execute(sql_stmt)
             counter=counter+no_rows
-            print("No of logs inserted : "+str(counter))
+            #print("No of logs inserted : "+str(counter))
             db.commit()
             updateAccountDetails(userId,txnDate,txnType,txnAmount)
         print("No of logs inserted : "+str(counter))
